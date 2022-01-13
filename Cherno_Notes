@@ -1,0 +1,79 @@
+
+Steps in GCC compilation
+- Preprocessing: Includes all the headerfiles, expands all macros, strips comments
+    gcc -E -o sample_expanded.c sample.c
+- Compilation: Checks errors, removes unreachable code, turns it into assembly
+    gcc -S sample_expanded.c
+- Assembly: Turns it into an object file
+    gcc -c sample_expanded.s
+- Linking: Links multiple object files into one
+    gcc -o binary_file sample_expanded.s
+
+
+Variables
+The size of the datatype is up to the compiler and can vary.
+
+Datatypes
+integer values
+char = 1 byte - cout interprets this as a letter
+short = 2 byte
+int = 4 bytes
+long = 4 bytes
+long long = 8 bytes
+You can designate each 'unsigned' to allow for larger positive numbers
+
+decimal values
+float - 4 bytes of datatype designated with f at the end
+double - 8 bytes
+
+bool is true or false designated as 1 or 0
+- is one byte of data, because we can't address one bit
+
+sizeof() returns the byte size of a variable
+
+Control Flow statements
+- Continue: starts the for loop over again
+- Break: stops the loop
+- Return: exits the function
+
+
+Pointers
+int var = 8;
+int* ptr = &var;
+- &var returns the address of the variable which can be stored in the ptr
+Dereferencing, accessing the data
+*ptr = 10; //assigns var the value of 10
+
+References
+int a = 5;
+int& ref = a; doesn't exist in memory only in our source code
+ref = 2; changes a to 2
+
+void Increment(int a) { a++;} doesn't add to a in main
+
+void Increment(int* a) {*a++;}
+Increment(&a); increases a in the main
+
+void Increment(int& a) {a++;}
+Increment(a); increase a in the main
+
+
+Classes - default is private
+Struct - default is public
+C has structs but not classes
+
+STATIC
+- outside of a class. Only visible to that files
+- inside of a class. Visible to all objects of that class
+
+extern datatype name; <- looks for this variable in other files
+
+In a class, any time an instantiation of that class changes a static variable,
+it changes that variable for all objects of that class.
+
+a Static variable in a function keeps the variable after the function is done running
+but doesn't give access outside the function.
+
+
+Constructor - a method that runs when an object is instantiated
+variables must be initialized with variables

@@ -31,7 +31,7 @@ double CTrapInt(double (*f)(double), double a, double b, int evenN)
     i ++;
   }
   double ssum = (*f)(a) + (*f)(b) + 2.0*sum;
-  double I = (h/2)*ssum;
+  double I = (h/2.0)*ssum;
   return I;
 }
 
@@ -121,11 +121,4 @@ double Romberg(double (*f)(double), double a, double b, int maxk, int maxj)
     i ++;
   }
   return R[9][5];
-}
-
-int main()
-{
-  double h =  Romberg(func, 0.0, 6.0, 16, 16);
-  //double k = CTrapInt(func, 0.0,6.0, )
-  printf("Integral: %0.15lf", h);
 }
